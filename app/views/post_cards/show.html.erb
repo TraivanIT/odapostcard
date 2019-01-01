@@ -1,0 +1,49 @@
+<section class="details-card">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 ">
+          <img src="" id="0" alt="preview" class="preview img-thumbnail">
+          <br>
+          <br>
+          <div class="img-thumbnail-inner">
+            <%= image_tag @post_card.post_card_image_one.url, id: "1", class: "thumb img-thumbnail  ", onmouseover: "preview(this);" %>
+            <%= image_tag @post_card.post_card_image_two.url, id: "2", class: "thumb img-thumbnail ", onmouseover: "preview(this);" %>
+            <%= image_tag @post_card.post_card_image_three.url, id: "3", class: "thumb img-thumbnail ", onmouseover: "preview(this);" %>
+            <%= image_tag @post_card.post_card_image_four.url, id: "4", class: "thumb img-thumbnail ", onmouseover: "preview(this);" %>
+            <%= image_tag @post_card.post_card_image_five.url, id: "5", class: "thumb img-thumbnail ", onmouseover: "preview(this);" %>
+          </div>
+      </div><!--col-md-7-->
+
+    <div class="col-md-5">
+      <h3><%=@post_card.post_card_name %></h3>
+      <p><%= number_to_currency @post_card.post_card_price%></p>
+      <p><%= @post_card.post_card_code%></p>
+
+      <%= form_for(@order_item , remote: true) do |f| %>
+        <%= f.hidden_field :post_card_id, value: @post_card.id %>
+
+        <div class="input-group mb-3">
+         
+          <%= f.number_field :quantity, value: 1, min: 1, class: " form-control ", aria_describedby:"button-addon2" %>
+
+          <div class="input-group-append">
+            <%= f.submit 'buy now', class: "btn btn-outline-secondary"%>
+            <%= link_to 'back', root_path, class: "btn btn-outline-secondary" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div><!--end of col-md-5-->
+  </div><!--end of row-->
+
+
+    <br>
+    <h4>Post card description</h4>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <p><b>Post card description :</b><%= @post_card.post_card_description%></p>
+      </div><!--end col-md-12-->
+    </div><!--end row-->
+  </div><!--end of container-->
+</section>

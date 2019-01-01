@@ -1,0 +1,33 @@
+<%= form_for [:admin, @traivan] do |f|%>
+  <% if @traivan.errors.any?%>
+
+    <div id="errors_validation">
+      <h3><%= pluralize(@traivan.errors.count, "error") %> from being update </h3>
+      <ol>
+        <%@traivan.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+      </ol>
+    </div>
+
+  <% end %>
+
+  <p>
+    <%= f.label :fullname%><br>
+    <%= f.text_field :fullname%>
+  </p>
+
+  <p>
+    <%= f.label :username%><br>
+    <%= f.text_field :username%>
+  </p>
+
+  <p>
+    <%= f.label :password%><br>
+    <%= f.password_field :password%>
+  </p>
+
+  <p>
+    <%= f.button  :submit%>
+  </p>
+<% end %>

@@ -1,0 +1,31 @@
+<div class="modal-dialog text-center">
+  <div class="col-sm-9 main-section">
+    <div class="modal-content">
+      <div class="col-12 user-img">
+        <%= image_tag("https://s3.us-east-2.amazonaws.com/odapostcard/face.png")%>
+      </div>
+
+      <div class="col-12 form-input">
+        <%= form_tag admin_sessions_path do %>
+          <div class="form-group">
+            <%= email_field_tag :username , params[:username] , placeholder: "Enter Email",class: "form-control"%>
+          </div>
+
+          <div class="form-group">
+            <%= password_field_tag :password , params[:username] , placeholder: "Enter Password",class: "form-control"%>
+          </div>
+
+          
+            <%= submit_tag 'Login', class: "btn btn-success"%>
+         
+
+          <div class="col-12 forgot text-center">
+            <a href="#">Forgot Password?</a>
+          </div>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

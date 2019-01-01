@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Odapostcard</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "ODA Post Cards", root_path, class: "text-secondary lead"%></h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" href="#">Features</a>
+      <a class="p-2 text-dark" href="#">Enterprise</a>
+      <a class="p-2 text-dark" href="#">Support</a>
+      <a class="p-2 text-dark" href="#">Pricing</a>
+    </nav>
+    
+      <div class="cart">
+        <%if current_order.order_items.size > 0 %>
+          <%= render 'layouts/cart' %>
+        <% else %>
+          <%= link_to "Login", '#',class: "btn btn-outline-secondary"%>
+        <% end %>
+      </div>
+    </div>
+
+  <div class="container">
+    <%= render 'shared/alerts' %>
+  </div>
+    
+    
+    <%= yield %>
+
+    
+     <script>
+        $("input[type='number']").inputSpinner()
+    </script>
+
+    <script >
+      //init the image index
+      var setImg = 1;
+      //set the imag for preview
+      document.getElementById(0).src = document.getElementById(setImg).src;
+      //mark the thumbnail as seleted
+      document.getElementById(setImg).className = " thumb selected"
+
+      function preview(img) {
+        //on click thumbnail set the previous image class to normal
+        document.getElementById(setImg).className = " thumb img-thumbnail";
+        img.className = " thumb selected";
+        document.getElementById(0).src = img.src;
+        setImg = img.id;
+      }
+
+    </script>
+  </body>
+</html>

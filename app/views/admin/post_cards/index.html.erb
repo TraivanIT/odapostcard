@@ -1,0 +1,41 @@
+<div class="traivan-inner bg-white">
+  <div class="float-left"><h3>List Postcars</h3></div>
+  <div class="float-right"> <%= link_to 'New Product', new_admin_post_card_path , class: "btn btn-primary btn-sm" %></div>
+
+<div class="table-inner">
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>post card name</th>
+        <th>post card price</th>
+        <th> post card code</th>
+        
+        <th>created</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @post_cards.each do |post_card|%>
+        <tr>
+          <td><%= post_card.id%></td>
+          <td><%= post_card.post_card_name%></td>
+          <td><%= post_card.post_card_price%></td>
+          <td><%= post_card.post_card_code%></td>
+          <td><%= time_ago_in_words post_card.created_at%></td>
+          
+          <td>
+            
+            <%= link_to 'show', admin_post_card_path(post_card)%>
+            <%= link_to 'edit', edit_admin_post_card_path(post_card)%>
+            <%= link_to 'delete', admin_post_card_path(post_card), method: :delete, data: {confirm: 'Are you sure? '}%>
+              
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+

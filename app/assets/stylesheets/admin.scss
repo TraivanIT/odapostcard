@@ -1,0 +1,53 @@
+@import "bootstrap";
+html, body {
+  background-color: #f6f8fa;
+  color: #676a6c;
+  height: 100%;
+}
+.header-top-area {
+  background:#00c292;
+  height: 40px;
+
+
+}
+
+.header-top-area .container ul li a{
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0px;
+
+  
+}
+.header-top-area .container ul li{
+  list-style: none;
+  display: inline-block;
+  height: 40px;
+}
+
+.header-top-area .container .active ul li{
+  list-style: none;
+  display: inline-block;
+  background-color: white;
+  height: 40px;
+}
+
+
+.box{
+  border: 1px red dotted;
+}
+
+
+.traivan-inner {
+  padding: 20px;
+}
+
+.img-inner img{
+  width: 200px;
+}
+.active {
+  background-color: white !important;
+}
+
+.nav .nav-tabs {
+  border: 1px green solid;
+}

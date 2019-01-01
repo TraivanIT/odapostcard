@@ -1,0 +1,65 @@
+<div class="container">
+  <h2 class="text-center text-secondary lead">You have order post cards <%= current_order.order_items.count%> times</h2>
+  <hr>
+  <div class="float-left">
+    <%= link_to 'continuous buying' , root_path, class: "btn btn-success btn-sm"%>
+  </div>
+  <div class="float-right">
+    <%= link_to 'Pay now' , root_path, class: "btn btn-success btn-sm"%>
+  </div>
+  <div class="clearfix"></div>
+  
+  <br>
+  <% if @order_items.size > 0 %>
+    <% @order_items.each do |order_item|%>
+      <div class="card">
+        <div class="row">
+          <div class="col-md-8 col-sm-12">
+            <div class="float-left">
+              <div class=" float-left thumb-inner">
+                <%= image_tag(order_item.post_card.post_card_thumb_image.url , class: "img-thumbnail" ) %>
+                
+              </div>
+              <div class="float-left text-secondary ml-2">
+                Post card name: <%= order_item.post_card.post_card_name%><br>
+                Quantity: <%= order_item.quantity%> <br>
+                Total: <%= number_to_currency  order_item.quantity * order_item.unit_price %>
+              </div>
+            </div><!--float-left-main-->
+          </div><!--col-md-8-->
+
+          <div class="col-md-4 col-sm-12">
+            <div class="float-right pt-3">
+              <%= form_for(order_item, remote: true) do |f|%>
+                <%= f.hidden_field :post_card_id, value: order_item.post_card.id %>
+                <div class="input-group mb-3">
+                  <%= f.number_field :quantity, value: order_item.quantity.to_i, min: 1, class: " form-control ", aria_describedby:"button-addon2" %>
+                  <div class="input-group-append">
+                    <%= f.submit 'update ', class: "btn btn-outline-secondary"%>
+                    <%= link_to 'delete', order_item, method: :delete, data: {confirm: "Are you sure ?"},romote: true, class: "btn btn-outline-secondary" %>
+                  </div>
+                  
+                </div>
+              <% end%>
+            </div><!--end of float-right-->
+                
+          </div>
+        </div><!--end row-->
+
+      </div><!--card-->
+    <% end %>
+
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="float-right"><h5 class="text-secondary">You have order <%= current_order.order_items.count%> items Total : <%= number_to_currency current_order.subtotal%></h5></div>
+      </div>
+    </div>
+
+  <% else %>
+
+    <h5 class="text-secondary text-center">There no post card in carts</h5>
+
+  <% end %>
+
+</div><!--end of container-->

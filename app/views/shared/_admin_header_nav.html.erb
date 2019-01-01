@@ -1,0 +1,36 @@
+<div class="header-top-area">
+  <div class="container">
+    <ul>
+      <li>
+        <%= link_to admin_dashboards_path, class: "nav-link #{ active? admin_dashboards_path  } " do %>
+          <i class="fas fa-home"></i> Home
+        <% end %>
+      </li>
+
+
+      <li>
+        <%= link_to admin_traivans_path, class: "nav-link #{ active? admin_traivans_path} " do %>
+          <i class="far fa-user"></i> Admin
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_post_cards_path, class: "nav-link #{ active? admin_post_cards_path }" do %>
+          <i class="far fa-user"></i> Postcards
+        <% end %>
+      </li> 
+      <li>
+        <%= link_to logout_path, class: "nav-link #{ active? logout_path }" do %>
+          <i class="far fa-user"></i> Logout
+        <% end %>
+      </li> 
+
+
+    </ul>
+  </div>
+</div>
+    
+  
+ 
+
+

@@ -1,0 +1,80 @@
+<%= form_for [:admin , @post_card] do |f|%>
+  <% if @post_card.errors.any? %>
+    <div id="errors_validation">
+      <h3><%= pluralize(@post_card.errors.count, "error")%> from being post card</h3>
+      <ol>
+        <% @post_card.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :post_card_name%><br>
+        <%= f.text_field :post_card_name, class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_price%><br>
+        <%= f.number_field :post_card_price, class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_code%><br>
+        <%= f.text_field :post_card_code, class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_description%><br>
+        <%= f.text_area :post_card_description, class: "form-control", rows: 5%>
+      </div>
+      
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :post_card_thumb_image%><br>
+        <%= f.file_field :post_card_thumb_image%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_image_one%><br>
+        <%= f.file_field :post_card_image_one%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_image_two%><br>
+        <%= f.file_field :post_card_image_two%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_image_three%><br>
+        <%= f.file_field :post_card_image_three%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_image_four%><br>
+        <%= f.file_field :post_card_image_four%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_card_image_five%><br>
+        <%= f.file_field :post_card_image_five%>
+      </div>
+      
+    </div>
+
+     <div class="form-group">
+      <%= f.button :submit , class: "btn btn-primary"%>
+      <%= link_to 'Cancel', admin_post_cards_path, class: "btn btn-primary"%>
+    </div>
+
+  </div>
+
+
+
+ 
+
+<% end %>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Odapostcard</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= render 'shared/font_aswome' %>
+  </head>
+
+  <body>
+
+    <%= render 'shared/admin_header_nav' %>
+    <div class="container">
+      <%= render 'shared/alerts' %>
+    
+      <%= yield %>
+  
+    </div>
+
+  </body>
+</html>

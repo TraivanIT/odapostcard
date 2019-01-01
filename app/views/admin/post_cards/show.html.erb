@@ -1,0 +1,21 @@
+<div class="traivan-inner bg-white">
+  <h1><b>Post card name :</b><%=@post_card.post_card_name %></h1>
+  <p><b>Post card price :</b><%= number_to_currency @post_card.post_card_price%></p>
+  <p><b>Post card code :</b><%= @post_card.post_card_code%></p>
+  <p><b>Post card description :</b><%= @post_card.post_card_description%></p>
+  <hr>
+  <h4>Post Card Images</h4>
+  <div class="img-inner">
+    <%= image_tag @post_card.post_card_image_one.url%>
+    <%= image_tag @post_card.post_card_image_two.url%>
+    <%= image_tag @post_card.post_card_image_three.url%>
+    <%= image_tag @post_card.post_card_image_four.url%>
+    <%= image_tag @post_card.post_card_image_five.url%>
+  </div>
+  <br>
+  <br>
+
+  <div class="float-left"><%= link_to 'Back' ,admin_post_cards_path%></div>
+  <div class="float-right"><%= link_to 'Edit' ,edit_admin_post_card_path(@post_card.id)%> <%= link_to 'Delete' , admin_post_card_path(@post_card.id), method: :delete, data: {confirm: "Are you sure ?"} %></div>
+  <div class="clearfix"></div>
+</div>
